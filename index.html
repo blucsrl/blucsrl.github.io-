@@ -24,13 +24,20 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.6);
     }
     header img {
-      height: 60px;
-      margin-right: 1rem;
-      animation: rotateLogo 8s linear infinite;
+    height: 80px;
+    margin-right: 1rem;
+    animation: pulseLogo 4s ease-in-out infinite;
     }
-    @keyframes rotateLogo {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    @keyframes pulseLogo {
+    0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
     }
     header h1 {
       margin: 0;
