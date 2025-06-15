@@ -92,8 +92,32 @@
       transform: scale(1.05);
       box-shadow: 0 0 10px #00aaff;
     }
+    .kpi-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .kpi-box {
+      background-color: #1e1e1e;
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid #2c2c2c;
+      text-align: center;
+      box-shadow: 0 0 8px #000;
+    }
+    .kpi-box h4 {
+      margin: 0 0 0.5rem;
+      color: #00aaff;
+      font-size: 1rem;
+    }
+    .kpi-box p {
+      font-size: 1.2rem;
+      color: #e0e0e0;
+    }
     canvas {
       max-width: 100%;
+      max-height: 250px;
       background-color: #fff;
       border-radius: 8px;
       margin-top: 2rem;
@@ -142,8 +166,30 @@
 
   <section id="demo">
     <h2>Demo Dashboard</h2>
-    <p>Simulează experiența unui dashboard real pentru utilajele din fabrica ta. Vizualizează date în timp real, selectează utilaje și generează rapoarte automate.</p>
-    <canvas id="chart" height="200"></canvas>
+    <div class="kpi-container">
+      <div class="kpi-box">
+        <h4>Cantitate produsă</h4>
+        <p>12.450 m</p>
+      </div>
+      <div class="kpi-box">
+        <h4>Viteză medie</h4>
+        <p>45.6 m/min</p>
+      </div>
+      <div class="kpi-box">
+        <h4>Timp pierdut</h4>
+        <p>1h 22m</p>
+      </div>
+      <div class="kpi-box">
+        <h4>OEE</h4>
+        <p>82.3%</p>
+      </div>
+      <div class="kpi-box">
+        <h4>Consum energie</h4>
+        <p>39.2 kWh</p>
+      </div>
+    </div>
+
+    <canvas id="chart"></canvas>
     <script>
       const ctx = document.getElementById('chart').getContext('2d');
       const chart = new Chart(ctx, {
@@ -176,8 +222,8 @@
   <section id="contact">
     <h2>Contact</h2>
     <p><strong>Telefon:</strong> +40 726065757<br>
-       <strong>Email:</strong> office@bluc.ro<br>
-       <strong>Adresă:</strong> Aleea Capidava 6, Constanta, Romania<br>
+       <strong>Email:</strong> contact@bluc.ro <br>
+       <strong>Adresă:</strong> Aleea Capidava 6, Constanța, Romania<br>
        <strong>Website:</strong> www.bluc.ro
     </p>
   </section>
