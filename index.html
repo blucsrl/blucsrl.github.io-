@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BLUC SRL - Soluții Tehnice</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
@@ -91,6 +92,12 @@
       transform: scale(1.05);
       box-shadow: 0 0 10px #00aaff;
     }
+    canvas {
+      max-width: 100%;
+      background-color: #fff;
+      border-radius: 8px;
+      margin-top: 2rem;
+    }
     footer {
       background-color: #101010;
       color: #aaa;
@@ -136,8 +143,34 @@
   <section id="demo">
     <h2>Demo Dashboard</h2>
     <p>Simulează experiența unui dashboard real pentru utilajele din fabrica ta. Vizualizează date în timp real, selectează utilaje și generează rapoarte automate.</p>
-    <a class="button" href="#">Autentificare demo</a>
-    <a class="button" href="#">Descarcă raport PDF demo</a>
+    <canvas id="chart" height="200"></canvas>
+    <script>
+      const ctx = document.getElementById('chart').getContext('2d');
+      const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['0', '10', '20', '30', '40', '50', '60'],
+          datasets: [{
+            label: 'Viteză utilaj (m/min)',
+            data: [0, 30, 45, 38, 52, 60, 57],
+            borderColor: '#00aaff',
+            backgroundColor: 'rgba(0,170,255,0.2)',
+            fill: true,
+            tension: 0.4
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { labels: { color: '#e0e0e0' } }
+          },
+          scales: {
+            x: { ticks: { color: '#ccc' }, grid: { color: '#444' } },
+            y: { ticks: { color: '#ccc' }, grid: { color: '#444' } }
+          }
+        }
+      });
+    </script>
   </section>
 
   <section id="contact">
